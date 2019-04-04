@@ -1,0 +1,48 @@
+{
+  "name": "API",
+  "version": "0.1.0",
+  "description": "API",
+  "author": "Iván Sánchez <isancheznetwork@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iSanchezDev/"
+  },
+  "main": "build/index.js",
+  "scripts": {
+    "start": "NODE_ENV=production node build/index.js",
+    "start:ts": "ts-node src/index.ts",
+    "start:debug": "node --inspect=5858 -r ts-node/register src/index.ts",
+    "dev": "NODE_ENV=development nodemon",
+    "build": "rm -rf build/* && tsc",
+    "normalize": "npm run format && npm run lint",
+    "format": "prettier --write --loglevel=warn 'src/**/*.ts'",
+    "lint": "tslint src/**/*.ts"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.116",
+    "@types/node": "^11.13.0",
+    "body-parser": "^1.18.3",
+    "csvtojson": "^2.0.8",
+    "express": "^4.16.4",
+    "lodash": "^4.17.10",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "nodemon": "^1.18.4",
+    "prettier": "^1.14.2",
+    "ts-jest": "^24.0.1",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "tslint-eslint-rules": "^5.4.0"
+  },
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "engines": {
+    "node": "10.x"
+  },
+  "license": "MIT"
+}
