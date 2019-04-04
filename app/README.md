@@ -1,4 +1,4 @@
-# APP WEB PUSH 
+# APP 
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -17,14 +17,6 @@ npm install
 npm run start
 ```
 
-## Production
-
-```sh
-npm run build
-```
-
-*Once you run this command the API offers the built html at `localhost:3001`*
-
 ## Featured
 
 ### APP
@@ -34,16 +26,7 @@ npm run build
 - [LESS](http://lesscss.org/)
 - [Webpack](https://webpack.js.org/)
 - [Lodash functional programming](https://lodash.com/docs/4.17.11)
-- [Moment](https://momentjs.com/)
-- Minimalist Wireframe and responsive
-- Notifications table
-- Steps form 
-	- Simple Notification builder
-	- Listing countries with emoji flags
 - Reusable components, services and actions
-- Basic ServiceWorker web notification
-- Proxy 
-
-##### Work in progress
-- Edit notification
-- Dive deep into `Web Push Notifications`
+- Proxy API
+- read CSV data from API Rest by query params 
+- Table can sort data and communicate with the API by table events

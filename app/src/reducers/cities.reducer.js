@@ -1,12 +1,11 @@
 
 import {
-  SET_USER,
-  SET_CATEGORIES,
-  LOGIN_SPOTIFY,
-  SET_FEATURED_PLAYLISTS
+  SET_CITIES
 } from './../actions/types';
 
-const initialState = [];
+const initialState = {
+  list: []
+};
 
 
 const citiesReducer = (state = initialState, action) => {
@@ -14,7 +13,7 @@ const citiesReducer = (state = initialState, action) => {
     case SET_CITIES:
       return {
         ...state,
-        ...action.cities
+        list: action.cities
       };
     default:
       return state

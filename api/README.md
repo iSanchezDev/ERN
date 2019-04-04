@@ -44,3 +44,4 @@ npm run start:ts
 - Development and production
 - API offers built HTML for production mode
 - [Lodash](https://lodash.com/docs/4.17.11)
+- Reading CSV files

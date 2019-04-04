@@ -4,15 +4,15 @@ import {message} from 'antd';
 
 
 // Redux Pure functions
-const setCities = (user) => ({
+const setCities = (cities) => ({
   type: 'SET_CITIES',
-  user
+  cities
 });
 
 
-export const getCities = () => async dispatch => {
+export const getCities = (query) => async dispatch => {
   try {
-    const response = await CitiesService.getCities();
+    const response = await CitiesService.getCities(query);
     if (response.status === 'error') {
       return message.error(response.message);
     }

@@ -2,54 +2,118 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import connect from 'react-redux/es/connect/connect';
 import {getCities} from '../../../actions/cities.actions';
-import {Avatar, Row, Table} from 'antd';
+import { Row, Table} from 'antd';
 
 class CitiesTable extends Component {
 
   state = {
-    loading: true
+    loading: true,
+    query: null
   };
 
   constructor(props) {
     super(props);
+    this.getCities = this.getCities.bind(this);
+    this.handleTableChange = this.handleTableChange.bind(this);
   }
 
   componentWillMount() {
-    this.props.getCities().then(() => {
+    this.getCities()
+  }
+
+  getCities(query) {
+    this.props.getCities(query).then(() => {
       this.setState({loading: false})
     });
+  }
+
+  handleTableChange(pagination, filters, sorter) {
+
+    // JUST SORT - Prevent from default and other events by state
+    if (sorter.field && sorter.order) {
+      const query = `?sortBy=${sorter.field}&sortOrder=${sorter.order}`;
+      if (query !== this.state.query) {
+        this.setState({query: query});
+        this.getCities(query);
+      }
+    }
   }
 
   render() {
 
     const {loading} = this.state;
-    const {spotify} = this.props;
-    const {categories} = spotify;
+    const {cities} = this.props;
 
     const columns = [{
-      title: 'Icon',
-      dataIndex: 'icon',
-      key: 'icon',
-      width: 200,
-      render: (text) => <Avatar shape="square" size={90} src={text}/>
-    }, {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-    }];
+        title: 'Index',
+        dataIndex: 'index',
+        key: 'index',
+        sorter: true,
+      }, {
+        title: 'City',
+        dataIndex: 'city',
+        key: 'city',
+        sorter: true,
+      }, {
+        title: 'Country',
+        dataIndex: 'country',
+        key: 'country',
+        sorter: true
+      }, {
+        title: 'All Buildings',
+        dataIndex: 'all_buildings',
+        key: 'all_buildings',
+        sorter: true
+      }, {
+        title: 'All Structures',
+        dataIndex: 'all_structures',
+        key: 'all_structures',
+        sorter: true
+      }, {
+        title: '100m+',
+        dataIndex: 'hundred',
+        key: 'hundred',
+        sorter: true
+      }, {
+        title: '150m+',
+        dataIndex: 'hundredFifty',
+        key: 'hundredFifty',
+        sorter: true
+      }, {
+        title: '200m+',
+        dataIndex: 'twoHundred',
+        key: 'twoHundred',
+        sorter: true
+      }, {
+        title: '300m+',
+        dataIndex: 'threeHundred',
+        key: 'threeHundred',
+        sorter: true
+      }];
 
-    const dataSource = _.map(categories.items, (item, index )=> {
+    const dataSource = _.map(cities.list, (item, index )=> {
       return {
         key: index,
-        id: item.id,
-        name: item.name,
-        icon: item.icons[0].url,
+        index: item.index,
+        city: item.city,
+        country: item.country,
+        all_buildings: item.all_buildings,
+        all_structures: item.all_structures,
+        hundred: item.hundred,
+        hundredFifty: item.hundredFifty,
+        twoHundred: item.twoHundred,
+        threeHundred: item.threeHundred
       }
     });
 
     return (
       <Row>
-        <Table dataSource={dataSource} columns={columns} loading={loading} pagination={{ pageSize: 5 }} size="middle"/>
+        <Table dataSource={dataSource}
+               columns={columns}
+               loading={loading}
+               onChange={this.handleTableChange}
+               pagination={{ pageSize: 10 }}
+               size="middle"/>
       </Row>
     );
   }
@@ -63,7 +127,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCities: () => dispatch(getCities()),
+    getCities: (data) => dispatch(getCities(data)),
   }
 };
 

@@ -5,11 +5,11 @@ import BaseService from '../base.service';
 class CitiesService {
 
   constructor() {
-    this.baseModuleUrl = '/cities';
+    this.baseModuleUrl = '/cities';``
   }
 
-  async getCities() {
-    const url = this.baseModuleUrl + '/';
+  async getCities(query) {
+    const url = `${this.baseModuleUrl}/` + (query || '');
     return await BaseService.get(url);
   }
 }

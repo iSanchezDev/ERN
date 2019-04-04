@@ -2,22 +2,19 @@
   "name": "app",
   "version": "0.1.0",
   "private": false,
-  "description": "Client implementation consuming Web Push API.",
+  "description": "Client implementation consuming API.",
   "author": "Iván Sánchez <isancheznetwork@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/iSanchezDev/MERN-Web-Push"
+    "url": "https://github.com/iSanchezDev"
   },
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
     "test": "echo \"testing in progress\""
   },
   "dependencies": {
     "antd": "^3.15.2",
-    "country-code-emoji": "^1.0.0",
     "lodash": "^4.17.11",
-    "moment": "^2.24.0",
     "prop-types": "^15.6.2",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
