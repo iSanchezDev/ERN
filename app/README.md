@@ -27,7 +27,10 @@ npm run start
 - [LESS](http://lesscss.org/)
 - [Webpack](https://webpack.js.org/) (development)
 - [Lodash functional programming](https://lodash.com/docs/4.17.11)
-- Reusable and Pure components, services and actions
-- Proxy for API in development mode
-- Reading CSV data from API Rest by query params: sortBy & orderBy
-- Table can sort data and communicate with the API by table events
+
+- More
+	- Reading CSV data from API Rest by query params: sortBy & orderBy
+	- Reusable and Pure components, services and actions.
+	- Proxy for API in development mode
+	- Table can sort data and communicate with the API by table events
+	- The chart appears sorted according to the table sorting state
