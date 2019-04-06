@@ -4,12 +4,12 @@ import _ from 'lodash';
 import {normalizeDataFromCSV, filterByQueryParams} from './../../utils/utils';
 
 
-
 export async function getCities(req, res) {
 
   try {
 
     const filePath = path.join(__dirname, '../../../data/arkera_cities.csv');
+
     const JSONData = await csv().fromFile(filePath);
 
     if (JSONData) {
@@ -20,9 +20,11 @@ export async function getCities(req, res) {
       }
       return res.status(200).json({status: 'ok', data})
     }
+
     res.status(404).json({status: 'error', message: 'Something went wrong reading cities CSV'})
 
   } catch (error) {
-    res.status(404).json({status: 'error', message: 'Something went wrong reading cities CSV', error})
+    console.error(error);
+    res.status(404).json({status: 'error', message: 'Something went wrong reading cities CSV'})
   }
 }

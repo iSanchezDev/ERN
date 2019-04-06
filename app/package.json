@@ -2,7 +2,7 @@
   "name": "app",
   "version": "0.1.0",
   "private": false,
-  "description": "Client implementation consuming API.",
+  "description": "React app implementation for API reading a csv of cities.",
   "author": "Iván Sánchez <isancheznetwork@gmail.com>",
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
     "react-dom": "^16.8.1",
     "react-redux": "^6.0.0",
     "react-scripts": "2.1.3",
+    "recharts": "^1.5.0",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0"

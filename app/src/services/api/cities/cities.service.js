@@ -5,7 +5,7 @@ import BaseService from '../base.service';
 class CitiesService {
 
   constructor() {
-    this.baseModuleUrl = '/cities';``
+    this.baseModuleUrl = '/cities';
   }
 
   async getCities(query) {

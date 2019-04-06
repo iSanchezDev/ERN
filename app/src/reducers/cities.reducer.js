@@ -1,7 +1,5 @@
 
-import {
-  SET_CITIES
-} from './../actions/types';
+import { SET_CITIES } from './../actions/types';
 
 const initialState = {
   list: []

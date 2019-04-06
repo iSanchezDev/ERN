@@ -42,6 +42,5 @@ npm run start:ts
 ### API
 - API Rest on [TypesScript](https://github.com/Microsoft/TypeScript)
 - Development and production
-- API offers built HTML for production mode
-- [Lodash](https://lodash.com/docs/4.17.11)
 - Reading CSV files
+- [Lodash](https://lodash.com/docs/4.17.11)

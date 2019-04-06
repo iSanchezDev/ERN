@@ -1,5 +1,5 @@
 import express from 'express';
-import { getCities } from '../controllers/csv/cities.controller';
+import { getCities } from '../controllers/cities/cities.controller';
 
 
 const router = express.Router();

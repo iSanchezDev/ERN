@@ -4,10 +4,12 @@ import connect from 'react-redux/es/connect/connect';
 import {getCities} from '../../../actions/cities.actions';
 import { Row, Table} from 'antd';
 
+const paginationSize = 10;
+
 class CitiesTable extends Component {
 
   state = {
-    loading: true,
+    loading: false,
     query: null
   };
 
@@ -22,6 +24,7 @@ class CitiesTable extends Component {
   }
 
   getCities(query) {
+    this.setState({loading: true});
     this.props.getCities(query).then(() => {
       this.setState({loading: false})
     });
@@ -29,13 +32,19 @@ class CitiesTable extends Component {
 
   handleTableChange(pagination, filters, sorter) {
 
-    // JUST SORT - Prevent from default and other events by state
+    // Just sorting
     if (sorter.field && sorter.order) {
-      const query = `?sortBy=${sorter.field}&sortOrder=${sorter.order}`;
-      if (query !== this.state.query) {
-        this.setState({query: query});
-        this.getCities(query);
-      }
+      this.sortTable(sorter)
+    }
+
+    // todo - pagination and filtering
+  }
+
+  sortTable(sorter) {
+    const query = `?sortBy=${sorter.field}&sortOrder=${sorter.order}`;
+    if (query !== this.state.query) {
+      this.setState({query: query});
+      this.getCities(query);
     }
   }
 
@@ -108,11 +117,11 @@ class CitiesTable extends Component {
 
     return (
       <Row>
-        <Table dataSource={dataSource}
+        <Table loading={loading}
                columns={columns}
-               loading={loading}
+               dataSource={dataSource}
                onChange={this.handleTableChange}
-               pagination={{ pageSize: 10 }}
+               pagination={{ pageSize: paginationSize }}
                size="middle"/>
       </Row>
     );

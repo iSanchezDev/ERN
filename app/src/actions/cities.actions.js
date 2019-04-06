@@ -1,5 +1,5 @@
 
-import CitiesService from '../services/API/cities/cities.service';
+import CitiesService from '../services/api/cities/cities.service';
 import {message} from 'antd';
 
 
