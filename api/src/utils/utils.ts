@@ -28,7 +28,7 @@ export function normalizeDataFromCSV(data) {
 }
 
 function parsingKeys(key) {
-  const _key = key.toLowerCase().replace(/\s/g, '_');
+  const _key = key.toLowerCase().replace(/[\s]+/g, '_');
   return translateCaseKeys(_key);
 }
 
