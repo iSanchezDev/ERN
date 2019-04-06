@@ -1,4 +1,4 @@
-# MERN Stack 
+# ERN Stack 
 
 #### Description
 The aim of this project is to create CSV fetcher data from API Rest using React and Redux.
